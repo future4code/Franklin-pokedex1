@@ -1,11 +1,11 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Angelo Cerqueira Alves
+- Jhennyfer Andreza da Silva
+- Nadezhda Karine Alves Silva
 
-Link do Surge: www.link.com.br
+Link do Surge: <<link do surge>>
 
 O que funciona:
 - Item 1
