@@ -5,11 +5,11 @@ Nome dos integrantes:
 - Jhennyfer Andreza da Silva
 - Nadezhda Karine Alves Silva
 
-Link do Surge: <<link do surge>>
+Link do Surge: https://wiggly-sisters.surge.sh/
 
 O que funciona:
-- Item 1
-- Item 2
+- Rotas
+- Página inicial
 
 O que não funciona: 
 - Item 3
