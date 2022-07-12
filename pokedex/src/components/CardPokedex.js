@@ -4,9 +4,8 @@ import axios from "axios"
 import { FOTO_URL } from "../constants/urls";
 import { useState } from "react";
 import { ContextPokedex } from "../context/ContextPokedex";
-import { goToPokemonDetail } from "../routes/cordinator";
 import { useNavigate } from "react-router-dom";
-
+import { goToPokemonDetail } from "../routes/cordinator";
 const Div = styled.div`
 width:230px;
 height:400px;
@@ -60,11 +59,23 @@ flex-direction: column;
 align-items: center;
 `
 
+export const CardPokedex = (props) => {
 
+    const navigate = useNavigate()
 
+    const [imgURL, setImgURL] = useState('')
 
-export const CardPokemon = (props) => {
-    // Separando a primeira letra e colocando ela maiúscula
+    const getPokemons = () => {
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${props.name}`).then((response) => {
+            setImgURL(response.data.sprites.front_default)
+        //    console.log(response.data.sprites.front_default)
+        }).catch((error) => {
+            console.log(error.response)
+        })
+    }
+
+    useEffect(getPokemons,[props])
+
     const str = props.name;
     const nome_pokemon = str[0].toUpperCase() + str.substr(1);
     //   
@@ -72,24 +83,25 @@ export const CardPokemon = (props) => {
     index++
     //
     const pokedex_state = useContext(ContextPokedex)
-    
-    const navigate = useNavigate()
 
-    const adicionarParaPokedex = () => {
-      const newPokedex = [... pokedex_state[0] , props.name]
-      pokedex_state[1](newPokedex)
-      props.remove()
+    const removerDaPokedex = () => {
+    //   const newPokedex = [... pokedex_state[0]]
+    //   newPokedex.splice(props.name, 1)
+    //   pokedex_state[1](newPokedex)
+      console.log('remove')
     }
 
-  
+    
     return (
+
         <Div>
-            <Foto src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index}.png`} />
+            {imgURL ? <Foto src={imgURL} />  : console.log('error') }
             <DivNome>
                 <Nome>{nome_pokemon}</Nome>
-                <Button onClick={adicionarParaPokedex}>{props.texto1}</Button>
+                <Button onClick={removerDaPokedex}>{props.texto1}</Button>
                 <Button onClick={() => {goToPokemonDetail(navigate)}}>{props.texto2}</Button>
             </DivNome>
         </Div>
+       
     )
 }
