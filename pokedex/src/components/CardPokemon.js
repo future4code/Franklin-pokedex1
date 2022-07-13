@@ -84,7 +84,7 @@ export const CardPokemon = (props) => {
   
     return (
         <Div>
-            <Foto src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index}.png`} />
+            <Foto src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png`} />
             <DivNome>
                 <Nome>{nome_pokemon}</Nome>
                 <Button onClick={adicionarParaPokedex}>{props.texto1}</Button>

@@ -1,7 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
-import { goToHome } from "../routes/cordinator"
-import { goToPokedex } from "../routes/cordinator"
+import { goToHome, goToPokedex } from "../../routes/cordinator"
 
 export const PokemonDetail = () => {
     const navigate = useNavigate()

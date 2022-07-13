@@ -67,8 +67,8 @@ export const CardPokedex = (props) => {
 
     const getPokemons = () => {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${props.name}`).then((response) => {
-            setImgURL(response.data.sprites.front_default)
-        //    console.log(response.data.sprites.front_default)
+            // setImgURL(response.data.sprites.front_default)
+            setImgURL(response.data.sprites.other['official-artwork'].front_default)
         }).catch((error) => {
             console.log(error.response)
         })
