@@ -99,7 +99,7 @@ export const CardPokedex = (props) => {
             <DivNome>
                 <Nome>{nome_pokemon}</Nome>
                 <Button onClick={removerDaPokedex}>{props.texto1}</Button>
-                <Button onClick={() => {goToPokemonDetail(navigate)}}>{props.texto2}</Button>
+                <Button onClick={() => {goToPokemonDetail(navigate, nome_pokemon)}}>{props.texto2}</Button>
             </DivNome>
         </Div>
        

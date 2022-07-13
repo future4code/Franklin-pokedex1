@@ -1,8 +1,10 @@
 import React from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { goToHome, goToPokedex } from "../../routes/cordinator"
 
 export const PokemonDetail = () => {
+    const {id} = useParams();
+    console.log(id)
     const navigate = useNavigate()
     return (
         <>
