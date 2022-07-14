@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import styled from 'styled-components'
 import axios from "axios"
-import { FOTO_URL } from "../constants/urls";
 import { useState } from "react";
 import { ContextPokedex } from "../context/ContextPokedex";
 import { useNavigate } from "react-router-dom";
 import { goToPokemonDetail } from "../routes/cordinator";
+
 const Div = styled.div`
 width:230px;
 height:400px;
@@ -72,6 +72,7 @@ export const CardPokedex = (props) => {
         }).catch((error) => {
             console.log(error.response)
         })
+        console.log(imgURL);
     }
 
     useEffect(getPokemons,[props])
@@ -79,8 +80,8 @@ export const CardPokedex = (props) => {
     const str = props.name;
     const nome_pokemon = str[0].toUpperCase() + str.substr(1);
     //   
-    let index = props.index
-    index++
+    let index = props.index;
+    index++;
     //
     const pokedex_state = useContext(ContextPokedex)
 
