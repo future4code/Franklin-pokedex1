@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { goToPokedex } from "../../routes/cordinator"
 import { CardPokemon } from "../../components/CardPokemon"
-import styled from "styled-components"
 import axios from "axios"
 import { ContextPokedex } from "../../context/ContextPokedex";
 import { useContext } from "react";
