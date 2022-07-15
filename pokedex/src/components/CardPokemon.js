@@ -78,6 +78,7 @@ export const CardPokemon = (props) => {
     const adicionarParaPokedex = () => {
       const newPokedex = [... pokedex.state , props.name]
       pokedex.setter(newPokedex)
+      alert(`Você adicionou ${nome_pokemon} na sua Pokedex`)
     }
 
   

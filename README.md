@@ -5,16 +5,16 @@ Nome dos integrantes:
 - Jhennyfer Andreza da Silva
 - Nadezhda Karine Alves Silva
 
-Link do Surge: https://wiggly-sisters.surge.sh/ (desatulizado)
+Link do Surge: https://tested-chess.surge.sh/
 
 O que funciona:
 - Rotas
 - Add pokemons na Podedex
 - Visualiza-os na Pokedex
 - Página de detalhes de cada Pokemon
+- Exclusão de Pokemon da Pokedex
 
 O que não funciona: 
-- Exclusão de Pokemon da Pokedex
 - Exclusão de Pokemon da Home quando adicionado na pokedex
 
 Prints:
