@@ -71,13 +71,13 @@ export const CardPokemon = (props) => {
     let index = props.index
     index++
     //
-    const pokedex_state = useContext(ContextPokedex)
-    
+    const pokedex = useContext(ContextPokedex)
+
     const navigate = useNavigate()
 
     const adicionarParaPokedex = () => {
-      const newPokedex = [... pokedex_state[0] , props.name]
-      pokedex_state[1](newPokedex)
+      const newPokedex = [... pokedex.state , props.name]
+      pokedex.setter(newPokedex)
       props.remove()
     }
 
@@ -87,8 +87,8 @@ export const CardPokemon = (props) => {
             <Foto src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png`} />
             <DivNome>
                 <Nome>{nome_pokemon}</Nome>
-                <Button onClick={adicionarParaPokedex}>{props.texto1}</Button>
-                <Button onClick={() => {goToPokemonDetail(navigate, props.name)}}>{props.texto2}</Button>
+                <Button onClick={adicionarParaPokedex}>Adicionar a sua Pokedex</Button>
+                <Button onClick={() => {goToPokemonDetail(navigate, props.name)}}>Ver detalhes do Pokemon</Button>
             </DivNome>
         </Div>
     )

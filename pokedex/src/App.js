@@ -4,10 +4,15 @@ import { ContextPokedex } from "./context/ContextPokedex";
 import { useState} from 'react';
 function App() {
   const [pokedex, setPokedex] = useState([])
- 
+  
+  const globalPokedex= {
+    state: pokedex,
+    setter: setPokedex
+  }
+
   return (
     <div>
-      <ContextPokedex.Provider value={[pokedex, setPokedex]}>
+      <ContextPokedex.Provider value={globalPokedex}>
         <Routers />
       </ContextPokedex.Provider>
     </div>

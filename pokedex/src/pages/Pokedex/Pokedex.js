@@ -11,17 +11,16 @@ import { DivListaPokemons, Button, Header, H1 } from "../Home/styledHome";
 export const Pokedex = () => {
     const navigate = useNavigate()
 
-    const pokedex_state = useContext(ContextPokedex)
+    const pokedex = useContext(ContextPokedex)
 
-    const listaPokemons = pokedex_state[0].map((pokemon,index) => {
+
+    const listaPokemons = pokedex.state.map((pokemon,index) => {
         
         return (
             <CardPokedex
                 key={index}
                 name={pokemon}
                 index={index}
-                texto1='Remover da sua Pokedex'
-                texto2='Ver detalhes'
             />
         )
     })

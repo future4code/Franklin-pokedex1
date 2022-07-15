@@ -61,48 +61,50 @@ align-items: center;
 
 export const CardPokedex = (props) => {
 
-    const navigate = useNavigate()
+  const navigate = useNavigate()
 
-    const [imgURL, setImgURL] = useState('')
+  const [imgURL, setImgURL] = useState('')
 
-    const getPokemons = () => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${props.name}`).then((response) => {
-            // setImgURL(response.data.sprites.front_default)
-            setImgURL(response.data.sprites.other['official-artwork'].front_default)
-        }).catch((error) => {
-            console.log(error.response)
-        })
-        console.log(imgURL);
-    }
+  const getPokemons = () => {
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${props.name}`).then((response) => {
+      // setImgURL(response.data.sprites.front_default)
+      setImgURL(response.data.sprites.other['official-artwork'].front_default)
+    }).catch((error) => {
+      console.log(error.response)
+    })
+    console.log(imgURL);
+  }
 
-    useEffect(getPokemons,[props])
+  useEffect(getPokemons, [props])
 
-    const str = props.name;
-    const nome_pokemon = str[0].toUpperCase() + str.substr(1);
-    //   
-    let index = props.index;
-    index++;
-    //
-    const pokedex_state = useContext(ContextPokedex)
+  const str = props.name;
+  const nome_pokemon = str[0].toUpperCase() + str.substr(1);
+  //   
+  let index = props.index;
+  index++;
+  //
+  const pokedex = useContext(ContextPokedex)
 
-    const removerDaPokedex = () => {
-    //   const newPokedex = [... pokedex_state[0]]
-    //   newPokedex.splice(props.name, 1)
-    //   pokedex_state[1](newPokedex)
-      console.log('remove')
-    }
 
-    
-    return (
+  const removerDaPokedex = () => {
+    const newState = [...pokedex.state]
+    // const index = //
+    //  newState.splice(index,1)  não estou conseguindo achar o index
+    pokedex.setter(newState)
+    console.log(newState)
+  }
 
-        <Div>
-            {imgURL ? <Foto src={imgURL} />  : console.log('error') }
-            <DivNome>
-                <Nome>{nome_pokemon}</Nome>
-                <Button onClick={removerDaPokedex}>{props.texto1}</Button>
-                <Button onClick={() => {goToPokemonDetail(navigate, nome_pokemon)}}>{props.texto2}</Button>
-            </DivNome>
-        </Div>
-       
-    )
+
+  return (
+
+    <Div>
+      {imgURL ? <Foto src={imgURL} /> : console.log('error')}
+      <DivNome>
+        <Nome>{nome_pokemon}</Nome>
+        <Button onClick={removerDaPokedex}>Remover da sua Pokedex</Button>
+        <Button onClick={() => { goToPokemonDetail(navigate, nome_pokemon) }}>Ver detalhes do Pokemon</Button>
+      </DivNome>
+    </Div>
+
+  )
 }
