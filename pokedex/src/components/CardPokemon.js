@@ -78,7 +78,6 @@ export const CardPokemon = (props) => {
     const adicionarParaPokedex = () => {
       const newPokedex = [... pokedex.state , props.name]
       pokedex.setter(newPokedex)
-      props.remove()
     }
 
   

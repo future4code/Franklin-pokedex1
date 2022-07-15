@@ -88,10 +88,9 @@ export const CardPokedex = (props) => {
 
   const removerDaPokedex = () => {
     const newState = [...pokedex.state]
-    // const index = //
-    //  newState.splice(index,1)  não estou conseguindo achar o index
+    const index = newState.indexOf(props.name)
+    newState.splice(index,1)
     pokedex.setter(newState)
-    console.log(newState)
   }
 
 
