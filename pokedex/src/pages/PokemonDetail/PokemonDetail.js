@@ -49,11 +49,14 @@ const DivMain = styled.div`
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 grid-template-rows: repeat(4, 1fr);
-grid-column-gap: 20px;
-grid-row-gap: 20px;
+grid-column-gap: 30px;
+grid-row-gap: 30px;
+height: 500px;
+margin-bottom: 50px;
 `
 const Img = styled.img`
-width:200px;`
+width:200px;
+`
 
 const H2NomePokemon = styled.h2`
 font-size:40px;
@@ -63,67 +66,61 @@ font-weight: 300;
 `
 const Titulo = styled.h3`
 font-family: sans-serif;
-color: #4f62cc;
+letter-spacing: 3px;
+font-weight: 500;
+color: white;
 text-align: center;
+background-color: #4f62cc;
+padding: 20px;
 `
 const DivDetails = styled.div`
-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-background-color: #4f62cc;
-padding: 15px;
-height: 90%;
-border-radius: 25px 25px 0 0;
 display: flex;
 flex-direction: column;
+justify-content: space-evenly;
+padding: 15px;
+height: 90%;
+display: flex;
+flex-direction: column;
+color: #4f62cc;
 align-items: center;
-color: white;
 font-family: monospace;
-font-size: 16px;
-line-height: 2rem;
+font-size: 25px;
 `
 
 const DivFotoFrontal = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
 grid-area: 1 / 1 / 3 / 2;
-border:1px solid black;
-padding: 10px;
-box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
-background-color: white;
-border: 15px solid white;
-border-radius:5px;
 `
 const DivFotoCostas = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
 grid-area: 3 / 1 / 5 / 2;
-border:1px solid black;
-padding: 10px;
-box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
-background-color: white;
-border: 15px solid white;
-border-radius:5px;
 `
 const DivAtributos = styled.div`
 grid-area: 1 / 2 / 5 / 3;
-border:1px solid black;
 padding: 15px;
 box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
 background-color: white;
-border: none;
 border-radius:5px;
 display: flex;
 flex-direction: column;
 `
 const DivTipos = styled.div`
 grid-area: 1 / 3 / 2 / 4;
-border:1px solid black;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
 padding: 15px;
 box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
 background-color: white;
 border: none;
 border-radius:5px;
-display: flex;
-flex-direction:column;
 `
 const DivAtaques = styled.div`
 grid-area: 2 / 3 / 5 / 4;
-border:1px solid black;
 padding: 15px;
 box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
 background-color: white;
@@ -148,7 +145,11 @@ export const PokemonDetail = () => {
 
 
     const getPokemons = () => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`).then((response) => {
+        //transformando o nome (id) em minúscula
+        //pois em alguns pokemons a API estava falhando ao pesquisar Charizard (primeira letra maiúscula)
+        const idLowerCase = id.toLowerCase()
+        ///
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${idLowerCase}`).then((response) => {
             // setImgURL(response.data.sprites.front_default)
             setFrontImgURL(response.data.sprites.front_default);
             setBackImgURL(response.data.sprites.back_default);
@@ -195,21 +196,27 @@ export const PokemonDetail = () => {
                     <DivAtributos>
                         <Titulo>Atributos:</Titulo>
                         <DivDetails>
-                            Hp: {stats[0]}<br />
-                            Attack: {stats[1]}<br />
-                            Defense: {stats[2]}<br />
-                            Special-Attack: {stats[3]}<br />
-                            Special-Defence: {stats[4]}<br />
-                            Speed: {stats[5]}
+                            <span>Hp: {stats[0]}</span>
+                            <span>Attack: {stats[1]}</span>
+                            <span>Defense: {stats[2]}</span>
+                            <span>Special-Attack: {stats[3]}</span>
+                            <span>Special-Defence: {stats[4]}</span>
+                            <span>Speed: {stats[5]}</span>
                         </DivDetails>
                     </DivAtributos>
                     <DivTipos>
                         <Titulo>Tipo:</Titulo>
-                        <DivDetails>{types[0]} <br />{types[1]}</DivDetails>
+                        <DivDetails>
+                        <span>{types[0]}</span>
+                        <span>{types[1]}</span>
+                            </DivDetails>
                     </DivTipos>
                     <DivAtaques>
                         <Titulo>Ataques:</Titulo>
-                        <DivDetails>{attacks[0]} <br /> {attacks[1]} </DivDetails>
+                        <DivDetails>
+                            <span>{attacks[0]}</span>
+                            <span>{attacks[1]}</span>
+                        </DivDetails>
                     </DivAtaques>
                 </DivMain>
             </Screen>
