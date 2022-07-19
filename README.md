@@ -1,16 +1,23 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Angelo Cerqueira Alves
+- Jhennyfer Andreza da Silva
+- Nadezhda Karine Alves Silva
 
-Link do Surge: www.link.com.br
+Link do Surge: https://tested-chess.surge.sh/
 
 O que funciona:
-- Item 1
-- Item 2
+- Rotas
+- Add pokemons na Podedex
+- Visualiza-os na Pokedex
+- Página de detalhes de cada Pokemon
+- Exclusão de Pokemon da Pokedex
 
 O que não funciona: 
-- Item 3
-- Item 4
+- Exclusão de Pokemon da Home quando adicionado na pokedex
+
+Prints:
+![image](https://user-images.githubusercontent.com/90925085/179135807-d5f67316-9b04-4bbe-85a0-a1f27e3762aa.png)
+![image](https://user-images.githubusercontent.com/90925085/179135843-b11e2191-3e87-4c48-aa99-66f5710e42c5.png)
+
